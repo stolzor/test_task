@@ -36,7 +36,7 @@ class PubDateExtractor(FieldExtractor):
     def format_result(self, result: str) -> str:
         formats = '%B %d, %Y'
 
-        return datetime.datetime.strptime(result, formats).strftime('%x')
+        return datetime.datetime.strptime(result, formats).strftime('%Y-%m-%d')
 
 
 class ArticleBodyExtractor(FieldExtractor):

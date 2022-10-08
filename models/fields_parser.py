@@ -2,6 +2,7 @@ from typing import Dict
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.chrome.options import Options
 
 from .schemas import TitleExtractor, ArticleBodyExtractor,\
     ExternalLinksExtractor, PubDateExtractor, TagsExtractor,\
@@ -14,7 +15,11 @@ class FieldsParser(object):
         caps = DesiredCapabilities().CHROME
         caps["pageLoadStrategy"] = "eager"
         # setting the "eager" parameter so as not to wait for the full download
-        self.driver = webdriver.Chrome(desired_capabilities=caps)
+        options = Options()
+        options.add_argument("--headless")
+        # setting for hide the browser while running
+        self.driver = webdriver.Chrome(desired_capabilities=caps,
+                                       options=options)
 
     def parse(self, url: str) -> Dict:
         """
