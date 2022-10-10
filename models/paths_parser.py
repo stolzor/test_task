@@ -13,7 +13,8 @@ class PathsParser:
         options = Options()
         options.add_argument("--headless")
         # setting for hide the browser while running
-        self.driver = webdriver.Chrome(desired_capabilities=caps, options=options)
+        self.driver = webdriver.Chrome(desired_capabilities=caps,
+                                       options=options)
 
     def check_existence(self, page: webdriver) -> bool:
         """

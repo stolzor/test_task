@@ -1,5 +1,3 @@
-from typing import Union
-import pandas as pd
 import streamlit as st
 from matplotlib import pyplot as plt
 
@@ -15,7 +13,8 @@ def checker():
         'Starting a long computation...'
         with st.spinner('Wait until the parsing is over...'):
             st.session_state['df'] = form_df()
-        st.success(f"Done! To parse {len(st.session_state['df'])} articles complete!")
+        st.success(f"Done! To parse {len(st.session_state['df'])}"
+                   f" articles complete!")
 
 
 'Hi!'
@@ -37,7 +36,7 @@ if option == 'simple aggregation' or option == 'simple':
     df_grouped = core(st.session_state['df'])
     df_grouped.plot(kind='bar', figsize=(30, 30))
     st.pyplot(plt)
-elif option == 'Creating metadata' or option == 'metadata':
+elif option == 'creating metadata' or option == 'metadata':
     checker()
 
     with st.spinner('Wait until the creating metadata is over...'):
@@ -45,6 +44,3 @@ elif option == 'Creating metadata' or option == 'metadata':
     st.dataframe(df_metadata)
 else:
     'Please enter available parameters'
-
-
-

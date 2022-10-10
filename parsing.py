@@ -10,7 +10,8 @@ def form_df() -> pd.DataFrame:
     print('-----START PARSE PAGE----')
     paths = PathsParser()
     paths_articles = paths.parse_urls()
-    # paths_articles = [i[:-1] for i in open('urls.txt')]  ## in order not to constantly parse links,
+    # paths_articles = [i[:-1] for i in open('urls.txt')]  ## in order not
+    # to constantly parse links,
     # you can comment out two lines from above and uncomment this one
     print('-----END PARSE PAGE----')
 
@@ -21,7 +22,8 @@ def form_df() -> pd.DataFrame:
         try:
             result = driver.parse(path)
             print(path, ' --- parsing complete!')
-            df = pd.concat([df, pd.DataFrame([list(result.values())], columns=list(result.keys()))])
+            df = pd.concat([df, pd.DataFrame([list(result.values())],
+                                             columns=list(result.keys()))])
         except:
             print(path, ' --- unsuccessful parsing.')
     print('-----END PARSE ARTICLES----')
