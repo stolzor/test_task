@@ -8,3 +8,13 @@
 
 `main.py` - файл для отображения в UI.
 `parsing.py` - занимается парсингом всей информацией и создает таблицу.
+
+Так же вы можете запустить мой контейнер.
+
+``docker pull stolzor/parsing_model``
+
+И для запуска введите:
+
+``docker run -d -p 8501:8501 stolzor/parsing_model``
+
+И перейдите по ссылке http://localhost:8501.
